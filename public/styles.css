@@ -1,0 +1,22 @@
+body {
+    background-color: #DDDDDD;
+    text-align: center;
+    font-family: 'Jacques Francois', serif;
+}
+section {
+    background-color: yellow;
+    padding: 200px;
+}
+#toppost{
+    background: repeating-linear-gradient(
+  45deg,
+  #606dbc,
+  #606dbc 10px,
+  #465298 10px,
+  #465298 20px
+);
+}
+
+form {
+    text-align: left;
+}
