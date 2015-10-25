@@ -3,12 +3,12 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var db = require('./models/index.js');
-var where = require('.utils/where');
+//var where = require('.utils/where');
 
 //CONFIG//
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-mongoose.connect('mongodb://localhost/project-1');
+//mongoose.connect('mongodb://localhost/project-1');
 
 //ROUTES//
 app.get("/", function(req, res){
@@ -29,16 +29,10 @@ app.post("/api/posts", function (req, res){
 	db.Quote.create(newPost, function(err, newquote){
 		if (err){console.log("err! cannot create");}
 		res.json(newquote);
+		console.log(newquote + "created!");
 	});
-// 	blogposts.create(blogposts, function (err, post){
-// 	res.json(blogposts);
-// 	});	
-//	blogposts.push('');
 
-//add id to new items
-
-
-// });
+ });
  
 app.delete("/api/posts:id", function(req, res){
 	var targetId = req.params.id;

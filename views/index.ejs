@@ -61,11 +61,11 @@
         </div>
         <div class="modal-body">
 <!-- FORM -->
-<form>
+<form id="submitnewquote">
 <div><label for="quoteinput">Your quote</label><br>
-<textarea id="quoteinput" placeholder="What is your quote?" cols="70"></textarea></div>
+<textarea id="quoteinput" placeholder="What is your quote?" cols="70" name="quote"></textarea></div>
 <div><label for="authorinput">Author</label><br>
-<input type="text" id="authorinput" placeholder="Who said this?" size="70"></div>
+<input type="text" id="authorinput" placeholder="Who said this?" size="70" name="author"></div>
 <div></div><hr>
 <button type="submit" class="btn btn-warning">Post!</button>
 </form>
@@ -90,13 +90,17 @@
         </div>
   </section>
 <!-- DB CONTENT -->
+<div id="content">
 <section class="posts" id="toppost">
-<h3>Top post here</h3>
+          <button type="button" class="deletebutton">&times;</button>
+<h3>“The journey of a thousand miles begins with a single step.”</h3>
+<h5>- Lao Tzu</h5>
 </section>
 <section class="posts" id="toppost2">
 <h3>Top post here</h3>
 
 </section>
+</div>
   </body>
 
 
