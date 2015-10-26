@@ -8,7 +8,11 @@ var db = require('./models/index.js');
 //CONFIG//
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded ({ extended:true}));
 //mongoose.connect('mongodb://localhost/project-1');
+
+
+
 
 //ROUTES//
 app.get("/", function(req, res){
@@ -25,7 +29,11 @@ app.get("/api/posts", function(req, res){
 });
 
 app.post("/api/posts", function (req, res){
-	var newPost=req.body;
+	console.log('the quote is :', req.body.quote);
+	var newPost={
+		quote: req.body.quote,
+		author:req.body.author
+	};
 	db.Quote.create(newPost, function(err, newquote){
 		if (err){console.log("err! cannot create");}
 		res.json(newquote);
@@ -34,12 +42,16 @@ app.post("/api/posts", function (req, res){
 
  });
  
-app.delete("/api/posts:id", function(req, res){
-	var targetId = req.params.id;
-	console.log(targetId);
-	db.Quote.findOneAndRemove({_id:targetId}, function(err,deletedItem){
-		if (err) {console.log("err! connot delete");}
-	console.log(deletedItem+" removed!");
+app.delete("/api/posts/:id", function(req, res){
+	db.Quote.findById(req.params.id).exec(function(err,newquote){
+		newquote.remove();
+		res.status(200).json({});
+
+	// var targetId = req.params._id;
+	// console.log(targetId);
+	// db.Quote.findOneAndRemove({_id:targetId}, function(err,deletedItem){
+	// 	if (err) {console.log("err! connot delete");}
+	console.log(req.params.id+" removed!");
 	});
   });
 

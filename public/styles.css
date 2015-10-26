@@ -3,20 +3,36 @@ body {
     text-align: center;
     font-family: 'Jacques Francois', serif;
 }
+h4{
+  font-family: 'Questrial', sans-serif;
+}
+button, .toggle, .toggle-handle {
+  border-radius: 0 !important;
+}
 section {
     background-color: yellow;
     padding: 200px;
+
 }
 #toppost{
     background: repeating-linear-gradient(
   45deg,
-  #606dbc,
-  #606dbc 10px,
-  #465298 10px,
-  #465298 20px
+  #FFC30F,
+  #FFC30F 10px,
+  #F9D543 10px,
+  #F9D543 20px
 );
-}
-
-form {
+   /*SKROLLR*/
+    background-size: cover;
+  /*  -webkit-transform: translate(0,100%);
+    transform: translate(0,100%);*/
+}/*
+h2{
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  text-align: center;
+}*/
+#submitnewquote{
     text-align: left;
 }

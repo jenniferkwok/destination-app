@@ -3,20 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- FONTS -->
+<!-- FONTS -->
 <link href='https://fonts.googleapis.com/css?family=Jacques+Francois' rel='stylesheet' type='text/css'>
-    <!-- STYLESHEETS -->
+<link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+<!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
-    <!-- TOGGLE -->
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
-    <!-- VENDOR SCRIPTS -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.leanmodal/1.1/jquery.leanmodal.min.js"></script>
-    <!-- APPLICATION SCRIPTS -->
-    <script src="scripts.js"></script>
+<!-- TOGGLE -->
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+<!-- SKROLLR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/jquery.leanmodal/1.1/jquery.leanmodal.min.js"></script>
+<!-- APPLICATION SCRIPTS -->
+<script src="scripts.js"></script>
     <title>QUO</title>
   </head>
   <body>
@@ -26,6 +30,7 @@
   <nav class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
+<!--  -->
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
       <span class="sr-only">Toggle navigation</span>
       <span class="icon-bar"></span>
@@ -37,23 +42,28 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li><div class="btn-group" data-toggle="buttons">
+
+
+<!--       <li><div class="btn-group" data-toggle="buttons">
   <label class="btn btn-warning active">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked>Popular
+    <input type="radio" name="options" id="option1" autocomplete="off" checked>Newest
   </label>
   <label class="btn btn-info">
     <input type="radio" name="options" id="option2" autocomplete="off">Votes
   </label>
-</div></li>
+</div></li> -->
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-  <!-- Trigger the modal with a button -->
+    <p class="navbar-btn">
+    <!-- BOOTSTRAP TOGGLE -->
+<input type="checkbox" class="toggle" checked data-toggle="toggle" data-on="Latest" data-off="Popular " data-onstyle="info" data-offstyle="danger">
+<!-- MODAL TRIGGER -->
       <button type="submit" id="submit" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-      <!-- Modal content-->
+<!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -67,40 +77,57 @@
 <div><label for="authorinput">Author</label><br>
 <input type="text" id="authorinput" placeholder="Who said this?" size="70" name="author"></div>
 <div></div><hr>
-<button type="submit" class="btn btn-warning">Post!</button>
+<button type="submit" class="btn btn-warning">Submit</button>
 </form>
         </div>
       </div>
       
     </div>
   </div>
-    </ul>
-  </div><!-- /.navbar-collapse -->
+    </ul>     
+    </p>
+  </div>
 </nav>
  </header>
+
 <!-- RANDOM QUOTE -->
-  <section id="welcome">
-    <div class="container" id="randomquote">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2 ">
-        <h2>“The journey of a thousand miles begins with a single step.”</h2>
-        <h5>- Lao Tzu</h5>
+<section id="welcome">
+<h4>Random Quote</h4>
+    <div id="randomquote">
+<br>
+<!-- 
+<form method="GET" action="http://www.stands4.com/services/v2/quotes.php">
+ <input type="hidden" name="uid" value="4469" />
+ <input type="hidden" name="tokenid" value="aamCAHxAPjwukaVI" />
+ <input type="hidden" name="searchtype" value="RANDOM" />
+ <input type="submit" value="GIMME RANDOM" />
+</form> -->
+
         </div>
-        </div>
-        </div>
+
+      <button id="morerandom" class="btn btn-warning"><span class="glyphicon glyphicon-random"></span></button>
   </section>
+  </div>
+
+
 <!-- DB CONTENT -->
 <div id="content">
+<% for (var i=posts.length-1; i>=0; i--){ %>
 <section class="posts" id="toppost">
-          <button type="button" class="deletebutton">&times;</button>
-<h3>“The journey of a thousand miles begins with a single step.”</h3>
-<h5>- Lao Tzu</h5>
+<p class="v"></p>
+<button type="button" id="up" class="btn btn-success"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button>
+<button type="button" id="down" class="btn btn-danger"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button>
+          <button data-id="<%=posts[i].id %>" type="button" class="deletebutton">&times;</button><br><br>
+<font size="100">“</font><h3><%= posts[i].quote %></h3><h1>”</h1><br>
+<h5>- <%= posts[i].author %></h5>
 </section>
-<section class="posts" id="toppost2">
-<h3>Top post here</h3>
-
-</section>
+<% } %>
 </div>
+
+<!-- SKROLLR -->
+<script type="text/javascript">
+  var s = skrollr.init();
+</script>
   </body>
 
 
