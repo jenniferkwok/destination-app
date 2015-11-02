@@ -5,7 +5,7 @@ var cookieParser=require('cookie-parser');
 var mongoose = require('mongoose');
 var db = require('./models/index.js');
 var request = require('request');
-var User = require('./models/user');
+// var User = require('./models/user');
 var session = require('express-session');
 //var where = require('.utils/where');
 
@@ -100,11 +100,12 @@ app.get("/usercookie", function(req,res){
 // //AUTHENTICATE
  app.post('/login', function (req,res){
  	console.log(req.body.email);
- 	User.authenticate(req.body.email, req.body.password, function(err, user){
+ 	db.User.authenticate(req.body.email, req.body.password, function(err, user){
  		if (err){console.log("login err: " , err);}
-		req.session.userId = user.email;
+		req.session.userId = user._id;
 		console.log("logged in as:", 	req.body.email);
 		res.redirect('/profile');
+		// res.render('/profile');
  	});
  });
 
@@ -115,15 +116,24 @@ app.get("/usercookie", function(req,res){
  	}
 // 	console.log('session user id:', req.session.userId);
  	db.User.findOne({_id: req.session.userId}, function(err, user){
+ 		console.log("req.session.userId is: " + req.session.userId);
+ 		console.log("user is: " + user);
+ 		console.log("error is: " + err);
  		if (err){console.log("get profile error");}
- 		res.render('profile', {user: res.session.userId});
+ 		res.render('profile', {user:user.email});
+ 		// res.render('profile', {user: req.session.userId});
  	});
  });
 // //LOGOUT
- app.get('/logout', function(req,res){
- 	req.session.userId=null;
- 	console.log('logged out');
- 	res.redirect('/');
+ app.get('/logout', function (req,res){
+ 	// req.session.userId=null;
+ 	console.log("in the logout path");
+ 	req.session.destroy(function(){  
+ 	 console.log('logged out');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+     res.redirect('/');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+  }); 
+ 	// console.log('logged out');
+ 	// res.redirect('/');
  });
 //END OF LOGIN LOGOUT
 

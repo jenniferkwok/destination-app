@@ -88,3 +88,13 @@ form{
   background-color: transparent;
   border: 1px double white;
 }
+#profile-title {
+  margin-top: 100px;
+}
+#logout {
+    padding: 11%;
+    color: white;
+}
+#logout:hover {
+  background-color: orange;
+}

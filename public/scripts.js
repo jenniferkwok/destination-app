@@ -32,9 +32,20 @@ $(document).ready(function(){
 		e.preventDefault();	
 		$.post("/login", $("#login").serialize(), function(response){
 		}).success(function(data){
-			window.location=data;
+			// window.location=data;
+			window.location.href = "/profile";
 		});
 	});
+
+//SIGNOUT
+	// $("#logout").submit(function(e){
+	// 	e.preventDefault();	
+	// 	$.get("/logout", function(response){
+	// 	}).success(function(data){
+	// 		// window.location=data;
+	// 		window.location.href = "/index";
+	// 	});
+	// });
 
 });
 function pageload(){
