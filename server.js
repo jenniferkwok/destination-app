@@ -3,15 +3,12 @@ var app = express();
 var bodyParser = require('body-parser');
 var cookieParser=require('cookie-parser');
 var mongoose = require('mongoose');
-var db = require('./models/index.js');
+// mongoose.connect("mongodb://localhost/destination");
+var db = require('./models/index');
 var request = require('request');
 // var User = require('./models/user');
 var session = require('express-session');
 //var where = require('.utils/where');
-
-//ENV
-require('dotenv').load();
-var randomquoteapitoken=process.env.randomquoteapitoken;
 
 //CONFIG//
 app.set('view engine', 'ejs');
@@ -45,14 +42,14 @@ app.use(session({
 
 //ROUTES//
 app.get("/", function(req, res){
-	db.Quote.find().exec(function(err, posts){
+	db.Post.find().exec(function(err, posts){
 		if (err){console.log("err! cannot get");}
 	res.render('index', {posts: posts});
 });
 });
 
 app.get("/api/posts", function(req, res){
-	db.Quote.find(function(err, posts){
+	db.Post.find(function(err, posts){
 		res.send(posts);
 	});
 });
@@ -60,30 +57,31 @@ app.get("/api/posts", function(req, res){
 app.post("/api/posts", function (req, res){
 	console.log('the quote is :', req.body.quote);
 	var newPost={
-		quote: req.body.quote,
+		imgurl: req.body.imgurl,
+		location:req.body.location,
 		author:req.body.author
 	};
-	db.Quote.create(newPost, function(err, newquote){
+	db.Post.create(newPost, function(err, newpost){
 		if (err){console.log("err! cannot create");}
-		res.json(newquote);
-		console.log(newquote + "created!");
+		res.json(newpost);
+		console.log(newpost + "created!");
 	});
 
  });
  
-app.delete("/api/posts/:id", function(req, res){
-	db.Quote.findById(req.params.id).exec(function(err,newquote){
-		newquote.remove();
-		res.status(200).json({});
-	console.log(req.params.id+" removed!");
-	});
-  });
+// app.delete("/api/posts/:id", function(req, res){
+// 	db.Quote.findById(req.params.id).exec(function(err,newquote){
+// 		newquote.remove();
+// 		res.status(200).json({});
+// 	console.log(req.params.id+" removed!");
+// 	});
+//   });
 
 app.get("/usercookie", function(req,res){
 	res.cookie("user email", user.email);
 });
 
-// ////// LOGIN LOGOUT ///////
+// // ////// LOGIN LOGOUT ///////
 // //SIGNUP
  app.post('/users', function (req,res){
  	// var newUser=
@@ -132,12 +130,10 @@ app.get("/usercookie", function(req,res){
  	 console.log('logged out');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
      res.redirect('/');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
   }); 
- 	// console.log('logged out');
- 	// res.redirect('/');
  });
 //END OF LOGIN LOGOUT
 
 
-app.listen(process.env.PORT || 5000, function(){
-	console.log("GO Project One GO!");
+app.listen(7777, function(){
+	console.log("7777 GO GO GO");
 });

@@ -6,6 +6,8 @@ var UserSchema = new Schema({
   email: {
     type: String,
   required: true},
+  firstname: String,
+  lastname: String,
   passwordDigest: String
 });
 
@@ -20,6 +22,8 @@ var UserSchema = new Schema({
 //       // create the new user (save to db) with hashed password
       UserModel.create({
         email: email,
+        firstname: firstname,
+        lastname: lastname,
         passwordDigest: hash
       }, callback);
     });
@@ -55,5 +59,4 @@ UserSchema.statics.authenticate = function (email, password, callback) {
 
 var User = mongoose.model('User', UserSchema);
 
-// export user model
 module.exports = User;

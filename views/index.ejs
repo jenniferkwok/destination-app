@@ -4,9 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- FONTS -->
-<link href='https://fonts.googleapis.com/css?family=Jacques+Francois' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
-
 <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -14,24 +11,15 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<!-- TOGGLE -->
-<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
 <!-- SKROLLR -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
-<!-- scrollify -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/0.1.10/jquery.scrollify.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.leanmodal/1.1/jquery.leanmodal.min.js"></script>
-<!-- SCROLL MAGIC -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
 <!-- VALIDATION -->
 <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
 <!-- APPLICATION SCRIPTS -->
 <script src="scripts.js"></script>
-    <title>QUO</title>
+    <title>Destination app</title>
   </head>
-  <body data-1500="background-image:linear-gradient(45deg, hsl(160, 100%, 40%), hsl(200, 50%, 30%));" data-end="background-image:linear-gradient(3600deg, hsl(360, 100%, 40%), hsl(400, 100%, 40%));">
+  <body>
 <header>
   <!--NAVBAR-->
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -44,7 +32,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">QUO</a>
+    <a class="navbar-brand" href="#">GOTO</a>
   </div>
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -71,16 +59,16 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Submit a Quote</h4>
+          <h4 class="modal-title">Share your picture!</h4>
         </div>
         <div class="modal-body" id="submitnewquotemodalbody">
 <!-- FORM -->
-<form id="submitnewquote">
-<div><label for="quoteinput">Your quote</label><br>
-<textarea id="quoteinput" placeholder="What is your quote?" cols="70" name="quote" class="required"></textarea></div>
-<div><label for="authorinput">Author</label><br>
-<input type="text" id="authorinput" placeholder="Who said this?" size="70" name="author" class="required"></div>
-<div></div><hr>
+<form id="newpost">
+img url
+<textarea placeholder="img url" name="imgurl" class="required"></textarea>
+
+<input type="text" placeholder="location" name="location" class="required">
+<input type="text" placeholder="author" name="author" class="required"><hr>
 <button type="submit" class="btn btn-warning">Submit</button>
 </form>
         </div>
@@ -99,13 +87,15 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Sign up for QUO</h4>
+          <h4 class="modal-title">Sign up for GOTO</h4>
         </div>
         <div class="modal-body">
 <!-- FORM -->
 <form id="signup">
 <div><label for="email">Your email</label><br>
 <input type="email" name="email" class="required"></div>
+<input type="text" name="firstname" class="required"/>
+<input type="text" name="lastname" class="required"/>
 <div><label for="password">Password</label><br>
 <input type="password" id="signuppassword" placeholder="Your password" size="70" name="password" class="required"></div>
 <hr>
@@ -148,48 +138,16 @@
   </div>
 </nav>
  </header>
-
-<!-- SITE INTRO -->
-
-<section id="intro">
-  <p class="ss"> HERE IS A DOSE OF WISDOM </p>
-  <!-- <p id="quo">QUO</p> --><br>
-  <h4 class="white">Welcome to QUO - your library of inspirational quotes</h4>
-  <hr>
-       <button class="btn btn-warning movetonext feelinglucky">Feeling Lucky ?</button>
-</section>
-
-<!-- RANDOM QUOTE -->
-
-<section id="welcome">
-<h4>Your Random Quote</h4>
-<hr>
-    <div id="randomquote">
-<!-- 
-<form method="GET" action="http://www.stands4.com/services/v2/quotes.php">
- <input type="hidden" name="uid" value="4469" />
- <input type="hidden" name="tokenid" value="aamCAHxAPjwukaVI" />
- <input type="hidden" name="searchtype" value="RANDOM" />
- <input type="submit" value="GIMME RANDOM" />
-</form> -->
-        </div>
-        <br>
-      <button id="morerandom" class="btn btn-warning"><span class="glyphicon glyphicon-random"></span></button>
-      <hr>
-       <button class="btn btn-warning movetonext">Browse our collection</button>
-  </section>
-
-
 <!-- DB CONTENT -->
 <div id="content">
 <% for (var i=posts.length-1; i>=0; i--){ %>
 <section class="posts" id="toppost">
 <div class="post1">
-<button data-id="<%=posts[i].id %>" type="button" class="btn btn-warning deletebutton">&times;</button><br><br>
-<h3>“ <%= posts[i].quote %> ”</h3><br>
-<h5>- <%= posts[i].author %></h5>
+<h3><img src= "<%= posts[i].imgurl %>" width="100%"> </h3><br><%= posts[i].location %> 
+<h5>by <%= posts[i].author %></h5>
 <hr>
 
+<button data-id="<%=posts[i].id %>" type="button" class="btn btn-warning deletebutton">&times;</button><br>
 <button id="vote" class="btn btn-warning"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></button>
 <button id="up" class="btn btn-warning movetoprev"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button>
 <button id="down" class="btn btn-warning movetonext"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button>
@@ -200,11 +158,6 @@
 </div>
 </section>
 <% } %>
-<section id="bye">
-  <button id="top" class="btn btn-warning">Back to top</button><hr>
-  <p>Designed and developed by Jennifer Kwok</p>
-</div>
-</section>
 
 <!-- SKROLLR -->
 <script type="text/javascript">
