@@ -3,12 +3,9 @@ var app = express();
 var bodyParser = require('body-parser');
 var cookieParser=require('cookie-parser');
 var mongoose = require('mongoose');
-// mongoose.connect("mongodb://localhost/destination");
 var db = require('./models/index');
 var request = require('request');
-// var User = require('./models/user');
 var session = require('express-session');
-//var where = require('.utils/where');
 
 //CONFIG//
 app.set('view engine', 'ejs');
@@ -21,24 +18,6 @@ app.use(session({
 	secret: 'Secret',
 	cookie: { maxAge: 30 * 60 * 1000}
  }));
-// mongoose.connect(config.mongodb);
-
-// var db = mongoose.connection;
-
-// db.on('error', function (err) {
-//   console.log('mongodb connection error: %s', err);
-//   process.exit();
-// });
-// db.once('open', function () {
-//   console.log('Successfully connected to mongodb');
-//   app.emit('dbopen');
-// });
-// mongoose.connect('mongodb://localhost/project-1');
-// mongoose.connect(
-//   process.env.MONGOLAB_URI ||
-//   process.env.MONGOHQ_URL ||
-//   'mongodb://localhost/project-1' // plug in the db name you've been using
-// );
 
 //ROUTES//
 app.get("/", function(req, res){
@@ -69,26 +48,26 @@ app.post("/api/posts", function (req, res){
 
  });
  
-// app.delete("/api/posts/:id", function(req, res){
-// 	db.Quote.findById(req.params.id).exec(function(err,newquote){
-// 		newquote.remove();
-// 		res.status(200).json({});
-// 	console.log(req.params.id+" removed!");
-// 	});
-//   });
+app.delete("/api/posts/:id", function(req, res){
+	db.Post.findById(req.params.id).exec(function(err,thepost){
+		thepost.remove();
+		res.status(200).json({});
+	console.log(req.params.id+" removed!");
+	});
+  });
 
 app.get("/usercookie", function(req,res){
 	res.cookie("user email", user.email);
 });
 
-// // ////// LOGIN LOGOUT ///////
-// //SIGNUP
+//SIGNUP
  app.post('/users', function (req,res){
  	// var newUser=
  	// {email: req.body.email,
  	// password: req.body.password
  	//  	};
- 	User.createSecure(req.body.email, req.body.password, function(err, user){
+ 	console.log(req.body);
+ 	db.User.createSecure(req.body.email, req.body.firstname, req.body.lastname, req.body.password, function(err, user){
  		if(err){
  			console.log("cannot create user:", err);
  		} 

@@ -3,15 +3,13 @@ var mongoose = require('mongoose'),
   bcrypt = require('bcrypt');
 
 var UserSchema = new Schema({
-  email: {
-    type: String,
-  required: true},
+  email: String,
   firstname: String,
   lastname: String,
   passwordDigest: String
 });
 
-  UserSchema.statics.createSecure = function (email, password, callback) {
+  UserSchema.statics.createSecure = function (email, firstname, lastname, password, callback) {
 // //   // `this` references our User model
 // //   // store it in variable `UserModel` because `this` changes context in nested callbacks
    var UserModel = this;

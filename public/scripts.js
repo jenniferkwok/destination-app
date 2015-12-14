@@ -7,7 +7,9 @@ $(document).ready(function(){
 //SIGNUP
 	$("#signup").submit(function(e){
 		e.preventDefault();
-		$.post("/users", $("#signup").serialize(), function(response){
+		var signupdata = $("#signup").serialize();
+		console.log(signupdata);
+		$.post("/users", signupdata, function(response){
 			console.log(response);
 		});
 	});
