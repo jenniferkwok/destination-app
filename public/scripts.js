@@ -81,7 +81,7 @@ function deletePost(context){
 
 $(document).on('click', '#want', function(e){
 	e.preventDefault();
-	userStar(this);
+	userFav(this);
 })
 
 function userStar(context){
@@ -97,5 +97,17 @@ function userStar(context){
 	});
 }
 
+function userFav(context){
+	console.log(context);
+	var userId= $(context).data().id;
+	console.log(userId);
+	$.ajax({
+		url: 'api/users/' + userId,
+		type: 'PATCH',
+		success: function(response){
+	console.log(response);
+		}
+	});
+}
 
 //////HORIZONTAL SCROLL

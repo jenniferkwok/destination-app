@@ -68,7 +68,7 @@ app.get("/usercookie", function(req,res){
  	// password: req.body.password
  	//  	};
  	console.log(req.body);
- 	db.User.createSecure(req.body.email, req.body.firstname, req.body.lastname, req.body.password, function(err, user){
+ 	db.User.createSecure(req.body.email, req.body.firstname, req.body.lastname, req.body.password, req.body.fav, function(err, user){
  		if(err){
  			console.log("cannot create user:", err);
  		} 
@@ -100,24 +100,31 @@ app.get("/usercookie", function(req,res){
  		res.render('profile', {user:user});
  	});
  });
-//////*********//////ADD STARRED USER TO INDIVIDUAL POST
-app.patch("/api/posts/:id", function(req, res){
-	// db.Post.findById(req.params.id, function(err,thepost){
-	// 		console.log(thepost)
-	// 	thepost.patch();
-	// 	res.status(200).json({});
-	// });
+// ////*********//////ADD STARRED USER TO INDIVIDUAL POST
+// app.patch("/api/posts/:id", function(req, res){
+// 	db.Post.update( {_id: req.params.id}, { $push: { "star": req.session.userId}},
+// 	function(err, pushedItem){
+// 		if(err) { console.log(err);}
+// 			else{
+// 				console.log(pushedItem + " is pushed to post.star array!")
+// 			}
+// 	} );
+// 	res.send("post update!!!!")
+// });
 
-    console.log(req.session.userId);
-	db.Post.update( {_id: req.params.id}, { $push: { "star": req.session.userId}},
+//////FAV 
+app.patch("/api/users/:id", function(req, res){
+    console.log(req.params.id);
+	db.User.update( {_id: req.session.userId}, { $push: { "fav": req.params.id}},
 	function(err, pushedItem){
 		if(err) { console.log(err);}
 			else{
 				console.log(pushedItem)
 			}
 	} );
-	res.send("post update!!!!")
+	res.send("ADD TO FAV!!!!")
 });
+
 
 // //LOGOUT
  app.get('/logout', function (req,res){

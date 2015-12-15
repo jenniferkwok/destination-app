@@ -6,7 +6,8 @@ var UserSchema = new Schema({
   email: String,
   firstname: String,
   lastname: String,
-  passwordDigest: String
+  passwordDigest: String,
+  fav: Array
 });
 
   UserSchema.statics.createSecure = function (email, firstname, lastname, password, callback) {
