@@ -81,7 +81,9 @@ function deletePost(context){
 
 $(document).on('click', '#want', function(e){
 	e.preventDefault();
-	userFav(this);
+            var $this = $(this);
+            $this.toggleClass('disabled', true);	
+            userFav(this);
 })
 
 function userStar(context){

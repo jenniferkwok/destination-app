@@ -10,7 +10,7 @@ var UserSchema = new Schema({
   fav: Array
 });
 
-  UserSchema.statics.createSecure = function (email, firstname, lastname, password, callback) {
+  UserSchema.statics.createSecure = function (email, firstname, lastname, password, fav, callback) {
 // //   // `this` references our User model
 // //   // store it in variable `UserModel` because `this` changes context in nested callbacks
    var UserModel = this;
@@ -23,7 +23,8 @@ var UserSchema = new Schema({
         email: email,
         firstname: firstname,
         lastname: lastname,
-        passwordDigest: hash
+        passwordDigest: hash,
+        fav: fav
       }, callback);
     });
   });

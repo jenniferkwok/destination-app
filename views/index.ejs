@@ -18,6 +18,17 @@
 <!-- VALIDATION -->
 <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
 <!-- APPLICATION SCRIPTS -->
+<script src="/vendor/jquery.mousewheel.js"></script>
+  <script>
+  $(function(){
+    $("#page-wrap").wrapInner("<table cellspacing='30'><tr>");
+    $(".post").wrap("<td></td>");
+    $("body").mousewheel(function(event, delta) {
+      this.scrollLeft -= (delta * 20);
+      event.preventDefault();
+    });   
+  });
+  </script>
 <script src="scripts.js"></script>
     <title>Destination app</title>
   </head>
@@ -103,37 +114,31 @@
   </div>
 </nav>
  </header>
- <!-- NEW NAVBAR! -->     <section class="color-7">
-        <span class="cl-effect-21">
-          <a href="#">Chatoyant</a>
-          <a href="#">Ineffable</a>
-          <a href="#">Efficiency</a>
-          <a href="#">Mellifluous</a>
-          <a href="#">Serendipity</a>
-        </span>
-      </section>
+
+
+
 <!-- DB CONTENT -->
 <div id="page-wrap">
 <% for (var i=posts.length-1; i>=0; i--){ %>
-<article class="post">
-<section class="posts" id="toppost">
-<h3><img src= "<%= posts[i].imgurl %>" width="100%"> </h3>
-  <button data-id="<%=posts[i].id %>" class="button button-large button-plain button-border" id="want">I WANT TO GO TO <%= posts[i].location %> </button>
-<br><input type="checkbox" id="star">
-<h5>by <%= posts[i].author %></h5>
+<!-- <article class="post"> -->
+<div class="post">
+<section class="postsection" id="toppost" style="background-image: url(<%= posts[i].imgurl %>)">
+<span class="wanttogo">
+  <div data-id="<%=posts[i].id %>" class="button button-large button-plain button-border" id="want">I WANT TO GO TO <%= posts[i].location %> </div>
+  <h5>by <%= posts[i].author %></h5>
+</span>
 <hr>
 <button data-id="<%=posts[i].id %>" type="button" class="btn btn-warning deletebutton">&times;</button><br>
-<button id="vote" class="btn btn-warning"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></button>
-<button id="up" class="btn btn-warning movetoprev"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></button>
-<button id="down" class="btn btn-warning movetonext"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button>
-<button class="btn btn-warning movetonext">Next</button>
-</section></article>
+</section></div>
+<!-- </article> -->
 <% } %>
+</div>
 
 <!-- SKROLLR -->
 <script type="text/javascript">
   var s = skrollr.init();
 </script>
+
 <!-- VALIDATE -->
 
 <script>

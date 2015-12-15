@@ -100,7 +100,7 @@ app.get("/usercookie", function(req,res){
  		res.render('profile', {user:user});
  	});
  });
-// ////*********//////ADD STARRED USER TO INDIVIDUAL POST
+/////ADD STARRED USER TO INDIVIDUAL POST
 // app.patch("/api/posts/:id", function(req, res){
 // 	db.Post.update( {_id: req.params.id}, { $push: { "star": req.session.userId}},
 // 	function(err, pushedItem){
@@ -112,17 +112,21 @@ app.get("/usercookie", function(req,res){
 // 	res.send("post update!!!!")
 // });
 
-//////FAV 
+//////ADD FAVORITE POSTS FOR USERS 
 app.patch("/api/users/:id", function(req, res){
-    console.log(req.params.id);
-	db.User.update( {_id: req.session.userId}, { $push: { "fav": req.params.id}},
-	function(err, pushedItem){
-		if(err) { console.log(err);}
-			else{
-				console.log(pushedItem)
-			}
-	} );
-	res.send("ADD TO FAV!!!!")
+	// var locationname = 
+    // console.log(post[req.params].id.location);
+    db.Post.findOne({_id: req.params.id}, function(err, city){
+		db.User.update( {_id: req.session.userId}, { $push: { "fav": city.location}},
+		function(err, pushedItem){
+			if(err) { console.log(err);}
+				else{
+					console.log(pushedItem)
+				}
+		res.send("ADD TO FAV!!!!")
+		} );
+    	
+    })
 });
 
 
