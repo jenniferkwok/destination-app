@@ -19,9 +19,9 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h1 id="profile-title">Profile</h1>
-        <h3>Welcome <%= user %></h3>
+        <h3>Welcome, <%= user.firstname %>!</h3>
         <hr>
-        <h1><=% user.firstname %> s Bucketlist</h1>
+        <h1><%= user.firstname %> <%= user.lastname %>'s Bucketlist</h1>
         <h1>Your Pictures</h1>
       <hr>
       

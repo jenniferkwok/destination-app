@@ -38,7 +38,8 @@ app.post("/api/posts", function (req, res){
 	var newPost={
 		imgurl: req.body.imgurl,
 		location:req.body.location,
-		author:req.body.author
+		author:req.body.author,
+		star: req.body.star
 	};
 	db.Post.create(newPost, function(err, newpost){
 		if (err){console.log("err! cannot create");}
@@ -47,7 +48,7 @@ app.post("/api/posts", function (req, res){
 	});
 
  });
- 
+
 app.delete("/api/posts/:id", function(req, res){
 	db.Post.findById(req.params.id).exec(function(err,thepost){
 		thepost.remove();
@@ -88,19 +89,36 @@ app.get("/usercookie", function(req,res){
 
 // //PROFILE PAGE
  app.get('/profile', function (req,res){
- 	if(req.session.userId===undefined){
+ 	if(req.session.userId===null){
  		res.redirect('/');
  	}
 // 	console.log('session user id:', req.session.userId);
  	db.User.findOne({_id: req.session.userId}, function(err, user){
  		console.log("req.session.userId is: " + req.session.userId);
- 		console.log("user is: " + user);
- 		console.log("error is: " + err);
+ 		// console.log("user is: " + user.email);
  		if (err){console.log("get profile error");}
- 		res.render('profile', {user:user.email});
- 		// res.render('profile', {user: req.session.userId});
+ 		res.render('profile', {user:user});
  	});
  });
+//////*********//////ADD STARRED USER TO INDIVIDUAL POST
+app.patch("/api/posts/:id", function(req, res){
+	// db.Post.findById(req.params.id, function(err,thepost){
+	// 		console.log(thepost)
+	// 	thepost.patch();
+	// 	res.status(200).json({});
+	// });
+
+    console.log(req.session.userId);
+	db.Post.update( {_id: req.params.id}, { $push: { "star": req.session.userId}},
+	function(err, pushedItem){
+		if(err) { console.log(err);}
+			else{
+				console.log(pushedItem)
+			}
+	} );
+	res.send("post update!!!!")
+});
+
 // //LOGOUT
  app.get('/logout', function (req,res){
  	// req.session.userId=null;

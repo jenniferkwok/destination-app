@@ -2,6 +2,10 @@ console.log("Sanity Check: JS is working!");
 
 $(document).ready(function(){
 
+	$(function(){
+		$("#page-wrap").wrapInner("<table cellspacing='30'><tr>");
+		$(".post").wrap("<td>");
+	});
 		pageload();
 		$('.modal').appendTo("body");
 //SIGNUP
@@ -24,15 +28,15 @@ $(document).ready(function(){
 		});
 	});
 
-//SIGNOUT
-	// $("#logout").submit(function(e){
-	// 	e.preventDefault();	
-	// 	$.get("/logout", function(response){
-	// 	}).success(function(data){
-	// 		// window.location=data;
-	// 		window.location.href = "/index";
-	// 	});
-	// });
+// SIGNOUT
+	$("#logout").submit(function(e){
+		e.preventDefault();	
+		$.get("/logout", function(response){
+		}).success(function(data){
+			// window.location=data;
+			window.onload.href = "/index";
+		});
+	});
 
 });
 function pageload(){
@@ -47,7 +51,6 @@ function pageload(){
 		});
 	});
 
-//EventListener for delte button
 $(document).on('click', '.deletebutton', function(e){
 	e.preventDefault();
 	deletePost(this);
@@ -65,3 +68,34 @@ function deletePost(context){
 		}
 	});
 }
+
+// if($('checkbox').val()==true){
+// console.log(this +'is starred');
+// star.push(user.email);
+// }
+
+// if ($('#star').is(":checked"))
+// {
+// console.log(this +'is starred');
+// }
+
+$(document).on('click', '#want', function(e){
+	e.preventDefault();
+	userStar(this);
+})
+
+function userStar(context){
+	console.log(context);
+	var postId= $(context).data().id;
+	console.log(postId);
+	$.ajax({
+		url: 'api/posts/' + postId,
+		type: 'PATCH',
+		success: function(response){
+	console.log(response);
+		}
+	});
+}
+
+
+//////HORIZONTAL SCROLL

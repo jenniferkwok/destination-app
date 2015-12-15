@@ -3,7 +3,8 @@ var Schema = mongoose.Schema;
 var PostSchema = new Schema({
 	imgurl: String,
 	location: String,
-	author: String
+	author: String,
+	star: Array
 	//votes: { type: Number, default: 0 }
 });
 

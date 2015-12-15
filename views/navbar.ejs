@@ -9,7 +9,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">QUO</a>
+    <a class="navbar-brand" href="#">App name</a>
   </div>
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -27,6 +27,7 @@
     <p class="navbar-btn">
 <!-- BOOTSTRAP TOGGLE -->
 <!-- <input type="checkbox" class="toggle" checked data-toggle="toggle" data-on="Latest" data-off="Popular " data-onstyle="info" data-offstyle="danger"> -->
+
 <!-- MODAL TRIGGER -->
 <li>      <button type="submit" id="submit" class="navbarbtn btn btn-warning" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button></li>
 <!-- Modal -->
@@ -36,77 +37,22 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Submit a Quote</h4>
+          <h4 class="modal-title">Share your picture!</h4>
         </div>
         <div class="modal-body" id="submitnewquotemodalbody">
 <!-- FORM -->
-<form id="submitnewquote">
-<div><label for="quoteinput">Your quote</label><br>
-<textarea id="quoteinput" placeholder="What is your quote?" cols="70" name="quote" class="required"></textarea></div>
-<div><label for="authorinput">Author</label><br>
-<input type="text" id="authorinput" placeholder="Who said this?" size="70" name="author" class="required"></div>
-<div></div><hr>
+<form id="newpost">
+img url
+<input type="text" placeholder="imgurl" name="imgurl" class="required">
+<input type="text" placeholder="location" name="location" class="required">
+<input type="hidden" name="author" value="<%=user.firstname%> <%=user.lastname%>" class="required">
+
 <button type="submit" class="btn btn-warning">Submit</button>
 </form>
         </div>
       </div>
     </div>
   </div>
-<!-- SIGNUP -->
-<!-- MODAL TRIGGER -->
-<li>
-      <button type="submit" id="signupmodaltrigger" class="navbarbtn btn btn-warning" data-toggle="modal" data-target="#signupModal">Signup</button></li>
-      
-<!-- Modal -->
-  <div class="modal fade" id="signupModal" role="dialog">
-    <div class="modal-dialog">
-<!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Sign up for QUO</h4>
-        </div>
-        <div class="modal-body">
-<!-- FORM -->
-<form id="signup">
-<div><label for="email">Your email</label><br>
-<input type="email" name="email" class="required"></div>
-<div><label for="password">Password</label><br>
-<input type="password" id="signuppassword" placeholder="Your password" size="70" name="password" class="required"></div>
-<hr>
-<button id="submitsignup" type="submit" class="btn btn-warning">Submit</button>
-</form>
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- LOGIN -->
-  <!-- MODAL TRIGGER -->
-      <li><button type="submit" id="submit" class="navbarbtn btn btn-warning" data-toggle="modal" data-target="#loginModal">Login</button></li>
-<!-- Modal -->
-  <div class="modal fade" id="loginModal" role="dialog">
-    <div class="modal-dialog">
-<!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Login</h4>
-        </div>
-        <div class="modal-body">
-<!-- LOGIN FORM -->
-<form id="login">
-<div><label for="email">Your email</label><br>
-<input type="email" name="email" class="required"></div>
-<div><label for="password">Password</label><br>
-<input type="password" id="password" placeholder="Your password" size="70" name="password" class="required"></div>
-<hr>
-<button class="btn btn-warning">Submit</button>
-</form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- END OF MODALS -->
   <li><a id="logout" href="/logout" class="navbarbtn btn btn-warning">Logout</a></li>
 
     </p> </ul>
