@@ -1,54 +1,11 @@
-nav {
-position: fixed;
-}
-
-.box {
-  position:relative;
-  vertical-align: middle;
-  color: #0b7;
-  display: inline-block;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  transition: 0.5s;
-  padding: 0 20px;
-  cursor: pointer;
-  border: 2px solid #0b7;
-  -webkit-transition:0.5s;
-}
-
-.box:hover {
-  border: 2px solid rgba(0,160,80,0);
-  color: #FFF;
-}
-
-.box::before, .box::after {
-  width: 100%;
-  height:100%;
-  z-index: 3;
-  content:'';
-  position: absolute;
-  top:0;
-  left:0;
-  box-sizing: border-box;
-  -webkit-transform: scale(0);
-  transition: 0.5s;
-}
-.bar::before {
-  border-bottom: 3px solid #FFF;
-  border-left: 3px solid #FFF;
-  -webkit-transform-origin: 100% 0%;
-}
-
-.bar::after {
-  border-top: 3px solid #FFF;
-  border-right: 3px solid #FFF;
-  -webkit-transform-origin: 0% 100%;
-}
-
 body {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 700;
     background-color: salmon;
     text-align: center;
+}
+ul {
+  list-style: none;
 }
 hr {
     border: 0;
@@ -60,10 +17,10 @@ hr {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-.postsection:before {      /* create a full-height inline block pseudo-element */
+.wanttogo:before {       
     content: ' ';
     display: inline-block;
-    vertical-align: middle; /* vertical alignment of the inline element */
+    vertical-align: middle; 
     height: 100%;
 }
 .wanttogo {
@@ -80,61 +37,3 @@ tr {
 .post { 
   width: 900px; 
 }
-/* Effect 21: borders slight translate */
-.cl-effect-21 a {
-  padding: 10px;
-  color: #237546;
-  font-weight: 700;
-  text-shadow: none;
-  -webkit-transition: color 0.3s;
-  -moz-transition: color 0.3s;
-  transition: color 0.3s;
-}
-
-.cl-effect-21 a::before,
-.cl-effect-21 a::after {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #fff;
-  content: '';
-  opacity: 0;
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  -moz-transition: opacity 0.3s, -moz-transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s;
-  -webkit-transform: translateY(-10px);
-  -moz-transform: translateY(-10px);
-  transform: translateY(-10px);
-}
-
-.cl-effect-21 a::before {
-  top: 0;
-  -webkit-transform: translateY(-10px);
-  -moz-transform: translateY(-10px);
-  transform: translateY(-10px);
-}
-
-.cl-effect-21 a::after {
-  bottom: 0;
-  -webkit-transform: translateY(10px);
-  -moz-transform: translateY(10px);
-  transform: translateY(10px);
-}
-
-.cl-effect-21 a:hover,
-.cl-effect-21 a:focus {
-  color: #fff;
-}
-
-.cl-effect-21 a:hover::before,
-.cl-effect-21 a:focus::before,
-.cl-effect-21 a:hover::after,
-.cl-effect-21 a:focus::after {
-  opacity: 1;
-  -webkit-transform: translateY(0px);
-  -moz-transform: translateY(0px);
-  transform: translateY(0px);
-}
-
-

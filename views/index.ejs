@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- FONTS -->
+<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
 <!-- STYLESHEETS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <!-- BUTTONS -->
 <link rel="stylesheet" href="http://unicorn-ui.com/buttons/css/buttons.css">
 <!-- NAV -->
@@ -40,23 +41,6 @@
   </head>
   <body>
 <header>
-
-<div class="container">
-      <div class="color-7">
-        <nav class="cl-effect-21 floating-menu">
-          <a href="#">Chatoyant</a>
-          <a href="#">Ineffable</a>
-          <a href="#">Efficiency</a>
-          <a href="#">Mellifluous</a>
-          <a href="#">Serendipity</a>
-        </nav>
-      </div>
-</div>
-
-
-
-
-
   <!--NAVBAR-->
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
@@ -72,14 +56,11 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <!-- <ul class="nav navbar-nav"> LEFT SIDE ITEMS </ul> -->
-    <ul class="nav navbar-nav navbar-right">
-    <p class="navbar-btn">
+    <ul class="nav navbar-nav navbar-right cl-effect-14">
 <!-- SIGNUP -->
 <!-- MODAL TRIGGER -->
-<li>
-      <button type="submit" id="signupmodaltrigger" class="navbarbtn btn btn-warning" data-toggle="modal" data-target="#signupModal">Signup</button></li>
-      
-<!-- Modal -->
+          <li><a href="#" id="signupmodaltrigger" data-toggle="modal" data-target="#signupModal">Signup</a></li>
+          <!-- Modal -->
   <div class="modal fade" id="signupModal" role="dialog">
     <div class="modal-dialog">
 <!-- Modal content-->
@@ -106,7 +87,7 @@
   </div>
 <!-- LOGIN -->
   <!-- MODAL TRIGGER -->
-      <li><button type="submit" id="submit" class="navbarbtn btn btn-warning" data-toggle="modal" data-target="#loginModal">Login</button></li>
+            <li><a href="#" id="loginmodaltrigger" data-toggle="modal" data-target="#loginModal">Login</a></li>
 <!-- Modal -->
   <div class="modal fade" id="loginModal" role="dialog">
     <div class="modal-dialog">
@@ -131,7 +112,7 @@
     </div>
   </div>
   <!-- END OF MODALS -->
-    </p> </ul>
+</ul>
   </div>
 </nav>
  </header>
