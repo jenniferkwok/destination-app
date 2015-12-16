@@ -14,7 +14,9 @@
   <title>Profile</title>
 </head>
 <body>
+<header>
   <% include navbar %>
+  </header>
   <div class="container text-center">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
@@ -24,9 +26,13 @@
         <h1><%= user.firstname %> <%= user.lastname %>'s Bucketlist</h1>
         <ul>
         <% for(var i=0; i<user.fav.length; i++){ %>
-        <li><%= user.fav[i] %></li>
+        <li id="li"><%= user.fav[i] %></li>
         <% } %>
         </ul>
+
+
+    <div id="map" style='height: 400px;'></div>
+
         <h1>Your Pictures</h1>
       <hr>
       
@@ -36,4 +42,6 @@
     </div>
   </div>
 </body>
+
+
 </html>

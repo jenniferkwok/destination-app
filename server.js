@@ -123,7 +123,6 @@ app.patch("/api/users/:id", function(req, res){
 				else{
 					console.log(pushedItem)
 				}
-		res.send("ADD TO FAV!!!!")
 		} );
     	
     })
