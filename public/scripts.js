@@ -42,6 +42,7 @@ $(document).ready(function(){
 	});
 
 });
+// NEW POST
 function pageload(){
 	$('#newpost').submit(function(e){
 		e.preventDefault();
@@ -51,6 +52,11 @@ function pageload(){
 		$('#newpost').append("<hr><h5>Thanks for your contribution!</h5");
 			// var qString = makeNewPost(response);
 			// $('#content').prepend(qString);
+			            var $this = $(this);
+            $this.toggleClass('disabled', true);	
+
+			location.reload();
+
 		});
 	});
 

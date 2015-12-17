@@ -17,6 +17,9 @@ hr {
     border: 0;
     /*border-bottom: 1px dashed #62DEDC;*/
 }
+.modal, .modal-content, .cd-user-modal{
+    border-radius: 0;
+}
 .postsection {
     height: 700px;
     background-size: cover;

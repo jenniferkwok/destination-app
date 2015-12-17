@@ -26,7 +26,7 @@ app.get("/", function(req, res){
 
  	db.User.findOne({_id: req.session.userId}, function(err, user){
  		if(err){console.log(err)};
- 		res.render('index', {currentUser: user, posts: posts});	
+ 		res.render('index', {user: user, posts: posts});	
  	})
 });
 });
