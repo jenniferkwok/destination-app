@@ -93,6 +93,7 @@ $(document).on('click', '#want', function(e){
             var $this = $(this);
             $this.toggleClass('disabled', true);	
             userFav(this);
+            
 })
 
 function userStar(context){

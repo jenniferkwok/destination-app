@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link href='https://fonts.googleapis.com/css?family=Poppins:600' rel='stylesheet' type='text/css'>
   <!-- bootstrap css -->
-  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="/vendor/loginformstyle.css">
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">    
+
+  <link rel="stylesheet" href="styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="scripts.js"></script>
-  <link type="text/css" rel="stylesheet" href="styles.css">
+    <script src="/vendor/modernizr.js"></script>
 
-  <title>Profile</title>
+
+  <title>NEXT STOP</title>
 </head>
 <body>
 <header>
@@ -19,28 +23,47 @@
   </header>
   <div class="container text-center">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h1 id="profile-title">Profile</h1>
-        <h3>Welcome, <%= user.firstname %>!</h3>
+    <div class="col-md-3"></div>
+      <div class="profilecontent col-md-6">
         <hr>
-        <h1><%= user.firstname %>&nbsp;<%= user.lastname %>'s Bucketlist</h1>
+        <h1><%= user.firstname %>&nbsp;<%= user.lastname %>'s Bucket List</h1><hr>
         <ul>
-        <% for(var i=0; i<user.fav.length; i++){ %>
+        <% for(var i=user.fav.length-1; i>=0; i--){ %>
         <li class="favplaces"><%= user.fav[i] %></li>
         <% } %>
         </ul>
-
+        <input class="full-width has-padding btn" type="submit" value="WHERE IS MY NEXT STOP?" id="randomdestination">
 
     <div id="map" style='height: 400px;'></div>
-
-        <h1>Your Pictures</h1>
-      <hr>
-      
+      <!-- <input type="button" id="btnSearch" value="Where" onclick="GetValue();" /> -->
 
 <!-- <button id="logout" href="/logout" class="btn btn-default">Log Out</button> -->
       </div>
     </div>
   </div>
+<script type="text/javascript">    var myarray= $.map($('li.favplaces'), function(o){console.log(o)});
+  function GetValue()
+{
+    var random = myarray[Math.floor(Math.random() * myarray.length)];
+   document.getElementsByTagName("li").innerHTML=random;
+}
+
+var arr = $('li.favplaces').get();
+
+function random(arr) {
+  $('li.favplaces').removeClass('animate');
+    if (!arr.length) {
+        return;
+    }
+    var el = arr.splice(Math.floor(Math.random() * arr.length), 1);
+    $(el).addClass('animate');
+    setTimeout(function () {
+        random(arr[0]);
+    }, 1000 + Math.floor(Math.random() * 1000))
+}
+$('#randomdestination').click(function(){random(arr)});
+</script>
+
 </body>
 
 

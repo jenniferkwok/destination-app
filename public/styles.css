@@ -1,30 +1,63 @@
 body {
-    font-family: 'Cabin', sans-serif;
-    font-weight: 700;
-    background-color: salmon;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    background-color: #FFD026;
     text-align: center;
+      text-transform: uppercase;
+
 }
-div.splash{
-margin:0 auto;  
+.splash{
+margin: auto auto;  
   color: white;
   position: fixed;
-    top: 50%;
+    padding: 100px;
+    top: 10%;
 }
 ul {
   list-style: none;
 }
 hr {
     border: 0;
-    /*border-bottom: 1px dashed #62DEDC;*/
+    border-bottom: 5px solid #FF710C;
+}
+
+.favplaces {
+  background-color: #16B2CE;
+  padding: 10px;
+  margin: 10px ;
+  color: #FBFAF0;
+}
+.favplaces:hover {
+  background-color: #FF710C
+}
+.animate {
+    background-color: #FF710C;
+}
+#randomdestination,
+.navbar {
+  background-color: #FBFAF0;
+        border-radius: 0;
+}
+.button-border{
+  border-width: 5px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+.profilecontent {
+  margin-top: 100px;
+}
+.skroll{
+  position: absolute;
 }
 .modal, .modal-content, .cd-user-modal{
     border-radius: 0;
 }
 .postsection {
     height: 700px;
-    background-size: cover;
+    background-size: 100% auto;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    color: white;
 }
 .wanttogo:before {       
     content: ' ';
