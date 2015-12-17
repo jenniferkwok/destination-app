@@ -14,7 +14,8 @@ $(document).ready(function(){
 		var signupdata = $("#signup").serialize();
 		console.log(signupdata);
 		$.post("/users", signupdata, function(response){
-			console.log(response);
+		}).success(function(newuser){
+			location.reload();
 		});
 	});
 
@@ -24,7 +25,9 @@ $(document).ready(function(){
 		$.post("/login", $("#login").serialize(), function(response){
 		}).success(function(data){
 			// window.location=data;
-			window.location.href = "/profile";
+			// window.location.href = "/profile";
+			// window.onload.href = "/index";
+			location.reload();
 		});
 	});
 

@@ -4,6 +4,12 @@ body {
     background-color: salmon;
     text-align: center;
 }
+div.splash{
+margin:0 auto;  
+  color: white;
+  position: fixed;
+    top: 50%;
+}
 ul {
   list-style: none;
 }
@@ -12,7 +18,7 @@ hr {
     /*border-bottom: 1px dashed #62DEDC;*/
 }
 .postsection {
-    height: 600px;
+    height: 700px;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

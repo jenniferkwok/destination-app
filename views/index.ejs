@@ -1,204 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- FONTS -->
-<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
-<!-- STYLESHEETS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<!-- BUTTONS -->
-<link rel="stylesheet" href="http://unicorn-ui.com/buttons/css/buttons.css">
-<!-- NAV -->
-<link rel="stylesheet" type="text/css" href="/vendor/component.css">
-    <link rel="stylesheet" href="styles.css">
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- FONTS -->
+  <link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+  <!-- LOGIN FORM -->
+  <link rel="stylesheet" type="text/css" href="/vendor/loginformreset.css">
+  <link rel="stylesheet" type="text/css" href="/vendor/loginformstyle.css">
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<!-- SKROLLR -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
-<!-- VALIDATION -->
-<script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
-<!-- MAPS -->
-<script src="http://maps.googleapis.com/maps/api/js?v=3&amp;libraries=places"></script>
-<!-- MOUSEWHEEL -->
-<script src="/vendor/jquery.mousewheel.js"></script>
-<!-- STELLAR -->
-<!-- <script src="https://raw.githubusercontent.com/markdalgleish/stellar.js/master/jquery.stellar.js"></script> -->
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- BUTTONS -->
+  <link rel="stylesheet" href="http://unicorn-ui.com/buttons/css/buttons.css">
+  <!-- NAV -->
+  <link rel="stylesheet" type="text/css" href="/vendor/component.css">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- SKROLLR -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+  <!-- VALIDATION -->
+  <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
+  <!-- MAPS -->
+  <script src="http://maps.googleapis.com/maps/api/js?v=3&amp;libraries=places"></script>
+  <!-- MOUSEWHEEL -->
+  <script src="/vendor/jquery.mousewheel.js"></script>
+  <script src="/vendor/modernizr.js"></script>
+
+  <!-- STELLAR -->
+  <!-- <script src="https://raw.githubusercontent.com/markdalgleish/stellar.js/master/jquery.stellar.js"></script> -->
   <script>
-  $(function(){
-    $("#page-wrap").wrapInner("<table cellspacing='30'><tr>");
-    $(".post").wrap("<td></td>");
-    $("body").mousewheel(function(event, delta) {
-      this.scrollLeft -= (delta * 20);
-      event.preventDefault();
-    });   
-  });
-  </script>
-<script src="scripts.js"></script>
-    <title>Destination app</title>
-  </head>
-  <body>
-<header>
-  <!--NAVBAR-->
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-<!--  -->
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a class="navbar-brand" href="#">GOTO</a>
-  </div>
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <!-- <ul class="nav navbar-nav"> LEFT SIDE ITEMS </ul> -->
-    <ul class="nav navbar-nav navbar-right cl-effect-14">
-<!-- SIGNUP -->
-<!-- MODAL TRIGGER -->
-          <li><a href="#" id="signupmodaltrigger" data-toggle="modal" data-target="#signupModal">Signup</a></li>
-          <!-- Modal -->
-  <div class="modal fade" id="signupModal" role="dialog">
-    <div class="modal-dialog">
-<!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Sign up for GOTO</h4>
-        </div>
-        <div class="modal-body">
-<!-- SIGNUP FORM -->
-<form id="signup">
-<div><label for="email">Your email</label><br>
-<input type="email" name="email" class="required"></div>
-<input type="text" name="firstname" class="required"/>
-<input type="text" name="lastname" class="required"/>
-<div><label for="password">Password</label><br>
-<input type="password" id="signuppassword" placeholder="Your password" size="70" name="password" class="required"></div>
-<hr>
-<button id="submitsignup" type="submit" class="btn btn-warning">Submit</button>
-</form>
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- LOGIN -->
-  <!-- MODAL TRIGGER -->
-            <li><a href="#" id="loginmodaltrigger" data-toggle="modal" data-target="#loginModal">Login</a></li>
-<!-- Modal -->
-  <div class="modal fade" id="loginModal" role="dialog">
-    <div class="modal-dialog">
-<!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Login</h4>
-        </div>
-        <div class="modal-body">
-<!-- LOGIN FORM -->
-<form id="login">
-<div><label for="email">Your email</label><br>
-<input type="email" name="email" class="required"></div>
-<div><label for="password">Password</label><br>
-<input type="password" id="password" placeholder="Your password" size="70" name="password" class="required"></div>
-<hr>
-<button class="btn btn-warning">Submit</button>
-</form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- END OF MODALS -->
-</ul>
-  </div>
-</nav>
- </header>
-
-<!-- DB CONTENT -->
-<div id="page-wrap container">
-        <% for (var i=posts.length-1; i>=0; i--){ %>
-
-<!-- <article class="post"> -->
-<div class="post" >
-<section class="postsection" id="toppost" style="background-image: url(<%= posts[i].imgurl %>)" data-stellar-background-ratio="0.5">
-<span class="wanttogo">
-  <div data-id="<%=posts[i].id %>" class="button button-large button-plain button-border" id="want">I WANT TO GO TO <%= posts[i].location %> </div>
-  <!-- <div data-id="<%=posts[i].id %>" class="box bar" id="want">I WANT TO GO TO <%= posts[i].location %> </div> -->
-
-  <h5>by <%= posts[i].author %></h5>
-</span>
-<hr>
-<button data-id="<%=posts[i].id %>" type="button" class="box bar">&times;</button><br>
-</section></div>
-<!-- </article> -->
-<% } %>
-</div>
-
-<!-- SKROLLR -->
-<script type="text/javascript">
-  var s = skrollr.init();
-</script>
-
-<!-- VALIDATE -->
-
-<script>
-
-  $('form').validate();
-</script>
-<script type="text/javascript">
-  ///// MAP
-function initialize() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 2,
-    center: new google.maps.LatLng(37.790841, -122.42),
-    styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#555555"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#F2C8B2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#A9B262"},{"visibility":"on"}]}]
-  });
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      map.setCenter(initialLocation);
-      map.setZoom(2);
-      var marker = new google.maps.Marker({
-        icon: {url :'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|FFBB00',
-        height:10},
-      position: initialLocation,
-      map: map
-  });
-      var infowindow = new google.maps.InfoWindow({
-        content: "You are here"
-      });
-      marker.addListener('click', function() {
-        infowindow.open(map, marker);
-      });     
+    $(function(){
+      $("#page-wrap").wrapInner("<table cellspacing='30'><tr>");
+      $(".post").wrap("<td></td>");
+      $("body").mousewheel(function(event, delta) {
+        this.scrollLeft -= (delta * 20);
+        event.preventDefault();
+      });   
     });
-  }
+  </script>
+  <script src="scripts.js"></script>
+  <title>NEXT STOP</title>
+</head>
+<body>
+  <header role="banner">
+    <!--NAVBAR-->
+    <nav class="navbar navbar-default navbar-fixed-top main-nav" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <!--  -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">NEXT STOP</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <!-- <ul class="nav navbar-nav"> LEFT SIDE ITEMS </ul> -->
+        <ul class="nav navbar-nav navbar-right cl-effect-14 main-nav">
+          <% if (currentUser) { %> 
+          <li><a href="#">Add New</a></li>
+          <li><a href="/profile"><%= currentUser.firstname %> <%= currentUser.lastname %></a></li>
+          <li><a id="logout" href="/logout" >Logout</a></li> 
+          <% } else { %>
+          <li><a class="cd-signin" href="#0">Login</a></li>
+          <li><a class="cd-signup" href="#0">Signup</a></li>
+          <% } %>
+          <!-- NEW MODAL & FORMS -->
 
-  loadData();
+          <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
+            <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+              <ul class="cd-switcher">
+                <li><a href="#0">Sign in</a></li>
+                <li><a href="#0">New account</a></li>
+              </ul>
 
-        function loadData (){
-          gon.locations.forEach(function(location){
-            var locationLatLong = new google.maps.LatLng(location.lat, location.lng);
-            var marker = new google.maps.Marker({
-              icon: {
-                url: '/assets/pocketwatch50.png'
-              },
-              position: locationLatLong,
-              map: map
-            });
-// marker listener
-google.maps.event.addListener(marker, 'click', function() {
-});
-});
-        }
-    }
-    google.maps.event.addDomListener(window, 'load', initialize);
+              <div id="cd-login"> <!-- log in form -->
+                <form class="cd-form" id="login">
+                  <p class="fieldset">
+                    <label for="signin-email">E-mail</label>
+                    <input class="full-width has-padding" id="signin-email" type="email" placeholder="E-mail" name="email">
+                  </p>
 
+                  <p class="fieldset">
+                    <label for="signin-password">Password</label>
+                    <input class="full-width has-padding" id="signin-password" type="password"  placeholder="Password" name="password">
+                  </p>
 
-</script>
-  </body>
+                  <p class="fieldset">
+                    <input class="full-width" type="submit" value="Login">
+                  </p>
+                </form>
+
+              </div> <!-- cd-login -->
+
+              <div id="cd-signup"> <!-- sign up form -->
+                <form class="cd-form" id="signup">
+                  <p class="fieldset">
+                    <label for="signup-email">E-mail</label>
+                    <input class="full-width has-padding" id="signup-email" type="email" placeholder="E-mail" name="email">
+                  </p>
+
+                  <p class="fieldset">
+                    <label for="signup-firstname">firstname</label>
+                    <input class="full-width has-padding" id="signup-firstname" type="text"  placeholder="Firstname" name="firstname">
+                  </p>
+
+                  <p class="fieldset">
+                    <label for="signup-lastname">lastname</label>
+                    <input class="full-width has-padding" id="signup-lastname" type="text"  placeholder="Lastname" name="lastname">
+                  </p>
+
+                  <p class="fieldset">
+                    <label for="signup-password">Password</label>
+                    <input class="full-width has-padding" id="signup-password" type="password"  placeholder="Password" name="password">
+                  </p>
+
+                  <p class="fieldset">
+                    <input id="submitsignup" class="full-width has-padding" type="submit" value="Create account">
+                  </p>
+                </form>
+              </div> <!-- cd-signup -->
+            </div> <!-- cd-user-modal-container -->
+          </div> <!-- cd-user-modal -->
+
+          <!-- END OF MODALS -->
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- DB CONTENT -->
+  <div id="page-wrap container"> 
+  <% if (currentUser == null) { %>
+<div class="splash"><h2>Log in and see where these places are!</h2></div>
+<% } %>
+<div class="post"><section class="postsection" data-stellar-background-ratio="0.5">
+ Instructions: Scroll! Discover places! Click "I want to go" to see where it is! And save to your bucket List!
+</section></div>
+    <% for (var i=posts.length-1; i>=0; i--){ %>
+
+    <!-- <article class="post"> -->
+    <div class="post" >
+      <section class="postsection" id="toppost" style="background-image: url(<%= posts[i].imgurl %>)" data-stellar-background-ratio="0.5">
+        <% if (currentUser) { %> 
+
+        <span class="wanttogo">
+          <div data-id="<%=posts[i].id %>" class="button button-large button-plain button-border" id="want">I WANT TO GO TO <%= posts[i].location %> </div>
+          <!-- <div data-id="<%=posts[i].id %>" class="box bar" id="want">I WANT TO GO TO <%= posts[i].location %> </div> -->
+
+          <h5>by <%= posts[i].author %></h5>
+        </span> <% } %>
+
+        
+        
+        <button data-id="<%=posts[i].id %>" type="button" class="deletebutton">&times;</button><br>
+      </section></div>
+      <!-- </article> -->
+      <% } %>
+    </div>
+
+    <!-- SKROLLR -->
+    <script type="text/javascript">
+      var s = skrollr.init();
+    </script>
+
+    <!-- VALIDATE -->
+
+    <script>
+
+      $('form').validate();
+    </script>
+<script src="/vendor/loginformmain.js"></script>
+</body>
 
 
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- FONTS -->
+  <link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+  <!-- LOGIN FORM -->
+  <link rel="stylesheet" type="text/css" href="/vendor/loginformreset.css">
+  <link rel="stylesheet" type="text/css" href="/vendor/loginformstyle.css">
+
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- BUTTONS -->
+  <link rel="stylesheet" href="http://unicorn-ui.com/buttons/css/buttons.css">
+  <!-- NAV -->
+  <link rel="stylesheet" type="text/css" href="/vendor/component.css">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- SKROLLR -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+  <!-- VALIDATION -->
+  <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
+  <!-- MAPS -->
+  <script src="http://maps.googleapis.com/maps/api/js?v=3&amp;libraries=places"></script>
+  <!-- MOUSEWHEEL -->
+  <script src="/vendor/jquery.mousewheel.js"></script>
+  <script src="/vendor/modernizr.js"></script>
+
+  <!-- STELLAR -->
+  <!-- <script src="https://raw.githubusercontent.com/markdalgleish/stellar.js/master/jquery.stellar.js"></script> -->
+  <script>
+    $(function(){
+      $("#page-wrap").wrapInner("<table cellspacing='30'><tr>");
+      $(".post").wrap("<td></td>");
+      $("body").mousewheel(function(event, delta) {
+        this.scrollLeft -= (delta * 20);
+        event.preventDefault();
+      });   
+    });
+  </script>
+  <script src="scripts.js"></script>
+</head>
+<body>
+  <header role="banner">
+    <!--NAVBAR-->
+    <nav class="navbar navbar-default navbar-fixed-top main-nav" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <!--  -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">NEXT STOP</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <!-- <ul class="nav navbar-nav"> LEFT SIDE ITEMS </ul> -->
+        <ul class="nav navbar-nav navbar-right cl-effect-14 main-nav">
+          <li><a href="#">Add New</a></li>
+          <li><a href="/profile"><%= user.firstname %> <%= user.lastname %></a></li>
+          <li><a id="logout" href="/logout" >Logout</a></li>
+          <!-- END OF MODALS -->
+        </ul>
+      </div>
+    </nav>
+  </header>
+</body>

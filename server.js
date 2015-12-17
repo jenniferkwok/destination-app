@@ -23,7 +23,11 @@ app.use(session({
 app.get("/", function(req, res){
 	db.Post.find().exec(function(err, posts){
 		if (err){console.log("err! cannot get");}
-	res.render('index', {posts: posts});
+
+ 	db.User.findOne({_id: req.session.userId}, function(err, user){
+ 		if(err){console.log(err)};
+ 		res.render('index', {currentUser: user, posts: posts});	
+ 	})
 });
 });
 
@@ -72,6 +76,7 @@ app.get("/usercookie", function(req,res){
  		if(err){
  			console.log("cannot create user:", err);
  		} 
+ 		req.session.userId = user._id;
  		res.json(user);
  	});
  });
