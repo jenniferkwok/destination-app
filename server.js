@@ -15,6 +15,12 @@ var fs = require('fs');
 
 var im = require('imagemagick');
 
+//HEROKU MONGODB
+mongoose.connect(
+  process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+  'mongodb://localhost/project-3'
+);
 //CONFIG//
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -213,6 +219,4 @@ app.patch("/api/users/:id", function(req, res){
 //END OF LOGIN LOGOUT
 
 
-app.listen(7777, function(){
-	console.log("7777 GO GO GO");
-});
+app.listen(process.env.PORT || 7777);
