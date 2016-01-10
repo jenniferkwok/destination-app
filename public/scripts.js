@@ -93,7 +93,7 @@ $(document).on('click', '#want', function(e){
             var $this = $(this);
             $this.toggleClass('disabled', true);	
             userFav(this);
-            
+
 })
 
 function userStar(context){
@@ -121,6 +121,48 @@ function userFav(context){
 		}
 	});
 }
+// LOGO EVERYWHERE
+            window.onLoad = Prep();
+            
+            function Prep(){
+                window_Height = window.innerHeight;
+                window_Width = window.innerWidth;
+                
+                image_Element = document.getElementById("pin");
+                image_Height = image_Element.clientHeight;
+                image_Width = image_Element.clientWidth;
+                
+                availSpace_V = window_Height - image_Height;
+                availSpace_H = window_Width - image_Width;
+                
+                var changeInterval = 1000; // Time has to be in miliseconds. So, 3000 is 3 seconds
+                setInterval(moveImage, changeInterval);
+            }
+            
+            function moveImage(){
+                var randNum_V = Math.round(Math.random() * availSpace_V);
+                var randNum_H = Math.round(Math.random() * availSpace_H);
+                
+                image_Element.style.top = randNum_V + "px";
+                image_Element.style.left = randNum_H + "px";
+            }
+
+// RUN!
+function moveDiv() {
+    var $span = $("#pin");
+    
+    $span.fadeOut(1000, function() {
+        var maxLeft = $(window).width() - $span.width();
+        var maxTop = $(window).height() - $span.height();
+        var leftPos = Math.floor(Math.random() * (maxLeft + 1))
+        var topPos = Math.floor(Math.random() * (maxTop + 1))
+     
+        $span.css({ left: leftPos, top: topPos }).fadeIn(1000);
+    });
+};
+
+moveDiv();
+setInterval(moveDiv, 5000);
 
 // RANDOM
     var collection = $("div.container div").get();

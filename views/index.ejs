@@ -74,6 +74,8 @@
           <li><a href="/profile"><%= user.firstname %> <%= user.lastname %></a></li>
           <li><a id="logout" href="/logout" >Logout</a></li> 
           <% } else { %>
+          <img src="/nextstop-bg-01.png" id="pin" width="50">
+
           <li><a class="cd-signin" href="#0">Login</a></li>
           <li><a class="cd-signup" href="#0">Signup</a></li>
           <% } %>
@@ -227,6 +229,23 @@ else{
 }
   }, 200);
 })()
+</script>
+<script type="text/javascript">
+  function moveDiv() {
+    var $span = $("#pin");
+    
+    $span.fadeOut(600, function() {
+        var maxLeft = $(window).width() - $span.width();
+        var maxTop = $(window).height() - $span.height();
+        var leftPos = Math.floor(Math.random() * (maxLeft + 1))
+        var topPos = Math.floor(Math.random() * (maxTop + 1))
+     
+        $span.css({ left: leftPos, top: topPos }).fadeIn(600);
+    });
+};
+
+moveDiv();
+setInterval(moveDiv, 10);
 </script>
 </body>
 

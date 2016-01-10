@@ -79,3 +79,6 @@ tr {
 .post { 
   width: 900px; 
 }
+#pin {
+  position: absolute;
+}
