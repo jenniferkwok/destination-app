@@ -6,14 +6,6 @@ var mongoose = require('mongoose');
 var db = require('./models/index');
 var request = require('request');
 var session = require('express-session');
-var form = "<!DOCTYPE HTML><html><body>" +
-"<form method='post' action='/upload' enctype='multipart/form-data'>" +
-"<input type='file' name='image'/>" +
-"<input type='submit' /></form>" +
-"</body></html>";
-var fs = require('fs');
-
-var im = require('imagemagick');
 
 //HEROKU MONGODB
 mongoose.connect(
