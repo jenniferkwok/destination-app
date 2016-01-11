@@ -7,12 +7,6 @@ var db = require('./models/index');
 var request = require('request');
 var session = require('express-session');
 
-//HEROKU MONGODB
-mongoose.connect(
-  process.env.MONGOLAB_URI ||
-  process.env.MONGOHQ_URL ||
-  'mongodb://localhost/project-3'
-);
 //CONFIG//
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
