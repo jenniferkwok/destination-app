@@ -1,6 +1,7 @@
 # NEXT STOP
 
-Now live at: <a>nextstop.herokuapp.com</a>
+Now live at: 
+http://nextstop.herokuapp.com
 
 An app that helps people to choose their future vacation destinations, also a travel photo-sharing platform. Tinder for sceneries!
 
