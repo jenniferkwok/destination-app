@@ -1,6 +1,17 @@
-# destination
+# NEXT STOP
+
+Now live at: <a>nextstop.herokuapp.com</a>
 
 An app that helps people to choose their future vacation destinations, also a travel photo-sharing platform. Tinder for sceneries!
+
+<hr>
+
+How to run this code on your computer:
+1. git clone this repo.
+2. open project folder.
+3. open a new tab on your command line tool, enter 'mongod' to run mongoDB.
+4. on the other tab, enter 'nodemon' to have it run on server.
+5. on your browser, go to 'localhost:7777' and see it live!
 
 <hr>
 User Stories
