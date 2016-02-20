@@ -37,6 +37,11 @@
   <!-- STELLAR -->
   <!-- <script src="https://raw.githubusercontent.com/markdalgleish/stellar.js/master/jquery.stellar.js"></script> -->
   <script>
+
+  var width = $(window).width();
+  if (width >=600){
+
+  // if (screen.width >= 600) {
     $(function(){
       $("#page-wrap").wrapInner("<table cellspacing='30'><tr>");
       $(".post").wrap("<td></td>");
@@ -45,6 +50,7 @@
         event.preventDefault();
       });   
     });
+  };
   </script>
   <script src="scripts.js"></script>
   <title>NEXT STOP</title>

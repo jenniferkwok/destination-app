@@ -20,7 +20,6 @@ hr {
     border: 0;
     border-bottom: 5px solid #FF710C;
 }
-
 .favplaces {
   background-color: #16B2CE;
   padding: 10px;
@@ -52,12 +51,36 @@ hr {
 .modal, .modal-content, .cd-user-modal{
     border-radius: 0;
 }
+@media only screen and (min-width: 600px){
+  .post{ 
+  width: 900px; 
+}
+tr { 
+  vertical-align: top;
+}
+* {
+  margin: 0; 
+  padding: 0; 
+}
 .postsection {
     height: 700px;
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: white;
+}
+} 
+@media only screen and (max-width: 600px){
+  .post{ 
+  height: 800px; 
+}
+.postsection {
+    height: 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+}
 }
 .wanttogo:before {       
     content: ' ';
@@ -68,16 +91,6 @@ hr {
 .wanttogo {
     /*position: absolute;*/
     top: 50%;
-}
-* {
-  margin: 0; 
-  padding: 0; 
-}
-tr { 
-  vertical-align: top;
-}
-.post { 
-  width: 900px; 
 }
 #pin {
   position: absolute;
