@@ -1,0 +1,98 @@
+/*html,body{min-height:100%; height:100%; overflow-x:hidden; display:block;}
+*/body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    background-color: #FFD026;
+    text-align: center;
+      text-transform: uppercase;
+
+}
+.splash{
+margin: auto auto;  
+  color: white;
+  position: fixed;
+    padding: 100px;
+    top: 10%;
+}
+ul {
+  list-style: none;
+}
+hr {
+    border: 0;
+    border-bottom: 5px solid #FF710C;
+}
+.favplaces {
+  background-color: #16B2CE;
+  padding: 10px;
+  margin: 10px ;
+  color: #FBFAF0;
+}
+.favplaces:hover {
+  background-color: #FF710C
+}
+.animate {
+    background-color: #FF710C;
+}
+#randomdestination,
+.navbar {
+  background-color: #FBFAF0;
+        border-radius: 0;
+}
+.button-border{
+  border-width: 5px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+}
+.profilecontent {
+  margin-top: 100px;
+}
+.skroll{
+  position: absolute;
+}
+.modal, .modal-content, .cd-user-modal{
+    border-radius: 0;
+}
+@media only screen and (min-width: 600px){
+  .post{ 
+  width: 900px; 
+}
+tr { 
+  vertical-align: top;
+}
+* {
+  margin: 0; 
+  padding: 0; 
+}
+.postsection {
+    height: 700px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-attachment: absolute;
+    color: white;
+}
+} 
+@media only screen and (max-width: 600px){
+  .post{ 
+  height: 800px; 
+}
+.postsection {
+    height: 100%;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-attachment: absolute;
+    color: white;
+}
+}
+.wanttogo:before {       
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle; 
+    height: 100%;
+}
+.wanttogo {
+    /*position: absolute;*/
+    top: 50%;
+}
+#pin {
+  position: absolute;
+}
