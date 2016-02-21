@@ -71,8 +71,12 @@ tr {
 }
 } 
 @media only screen and (max-width: 600px){
+  .splash {
+    width: 400px; 
+    top: 2%;
+}
   .post{ 
-  height: 800px; 
+  height: 600px; 
 }
 .postsection {
     height: 100%;

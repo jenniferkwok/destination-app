@@ -67,13 +67,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/"><img src="/nextstop-bg-01.png" width="100"></a>
+
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <!-- <ul class="nav navbar-nav"> LEFT SIDE ITEMS </ul> -->
-
-     <!-- <div class="skroll"><img src="http://images.clipartpanda.com/world-clip-art-world-clip-art-13.gif" width="60" id="globe" data-stellar-ratio="2"></div> -->
+        <ul class="nav navbar-nav">         
+        <a class="brand" href="/"><img src="/nextstop-bg-01.png" width="100"></a> </ul>
         <ul class="nav navbar-nav navbar-right cl-effect-14 main-nav">
           <% if (user) { %> 
           <li><a href="#" type="submit" id="submit" data-toggle="modal" data-target="#myModal">Add New</a></li>
@@ -183,7 +182,8 @@
   <!-- DB CONTENT -->
   <div id="page-wrap container"><div class="post"><section class="postsection" data-stellar-background-ratio="0.5"> 
   <% if (user == null) { %>
-<div class="splash"><img src="/globe3-01.png" id="globei" width="200"><hr><h2>Log in and start exploring the world!</h2><hr>
+<div class="splash">
+<img src="/globe3-01.png" id="globei" width="200"><hr><h2>Log in and start exploring the world!</h2><hr>
 </div>
 <% } else { %>
 <img src="/globe3-01.png" id="globei" width="200"><hr>
@@ -204,18 +204,12 @@
           
         </span> <% } %>
 
-        
-        
+      
         <!-- <button data-id="<%=posts[i].id %>" type="button" class="deletebutton">&times;</button><br> -->
       </section></div>
       <!-- </article> -->
       <% } %>
     </div>
-
-    <!-- SKROLLR -->
-    <script type="text/javascript">
-      var s = skrollr.init();
-    </script>
 
     <!-- VALIDATE -->
     <script>
